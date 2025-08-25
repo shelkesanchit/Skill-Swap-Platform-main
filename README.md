@@ -191,8 +191,8 @@ This project is configured for easy deployment on Render. Follow these steps:
    - **Region**: Choose closest to your users
    - **Branch**: `main` (or your main branch)
    - **Runtime**: `Python 3`
-   - **Build Command**: `chmod +x build.sh && ./build.sh`
-   - **Start Command**: `gunicorn app:app`
+   - **Build Command**: (leave blank - Render will automatically install from requirements.txt)
+   - **Start Command**: `python app.py`
    - **Instance Type**: Free tier is sufficient for testing
 
 ### 3. Environment Variables (Optional)
@@ -201,7 +201,7 @@ Set the following environment variable in Render dashboard:
 
 ### 4. Deploy
 - Click "Create Web Service"
-- Render will automatically build and deploy your application
+- Render will automatically install dependencies from requirements.txt and start your application
 - You'll get a URL like `https://your-app-name.onrender.com`
 
 ### 5. Post-Deployment
