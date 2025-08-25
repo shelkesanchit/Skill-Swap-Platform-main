@@ -192,7 +192,7 @@ This project is configured for easy deployment on Render. Follow these steps:
    - **Branch**: `main` (or your main branch)
    - **Runtime**: `Python 3`
    - **Build Command**: (leave blank - Render will automatically install from requirements.txt)
-   - **Start Command**: `python app.py`
+   - **Start Command**: `python app.py` (or alternatively: `chmod +x start.sh && ./start.sh`)
    - **Instance Type**: Free tier is sufficient for testing
 
 ### 3. Environment Variables (Optional)
@@ -213,6 +213,27 @@ Set the following environment variable in Render dashboard:
 - The SQLite database will be stored on Render's ephemeral storage
 - For production use, consider upgrading to PostgreSQL
 - Static files are served by Flask (suitable for small-scale applications)
+
+### Troubleshooting Deployment
+If you encounter deployment issues:
+
+1. **"Build failed" errors**: 
+   - Ensure your GitHub repository has the latest changes
+   - Make sure Build Command is left blank
+   - Verify Start Command is exactly: `python app.py`
+
+2. **"Publish directory does not exist" error**:
+   - Leave the "Publish Directory" field completely blank
+   - Don't set any custom publish directory
+
+3. **App won't start**:
+   - Check that requirements.txt only contains Flask and Werkzeug
+   - Verify your repository doesn't have old deployment files (Procfile, build.sh, runtime.txt)
+
+4. **Alternative start commands to try**:
+   - `python app.py`
+   - `chmod +x start.sh && ./start.sh`
+   - `python3 app.py`
 
 ## License
 
